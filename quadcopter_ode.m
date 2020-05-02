@@ -32,20 +32,9 @@ pitch_acceleration = (arm_moment/inertia_moment)*diff_mode;
 %%Equations of thrust forces
 throttle_ref = alpha*[diff_mode common_mode]';
 f_velocity = (-[f1 f2]'/tau) + throttle_ref/tau;
-f1_velocity = f_velocity(1,:);
-f2_velocity = f_velocity(2,:);
 
 %% 
-%dydt(1)= velocity_x;
-%dydt(2)= velocity_z;
-%dydt(3) = velocity_pitch;
-%dydt(4) = x_acceleration;
-%dydt(5) = z_acceleration;
-%dydt(6)= pitch_acceleration;
-% keep thrust rates constant here
-% dydt(7) = 0;
-% dydt(8) = 0;
-dydt=[velocity_x;velocity_z;velocity_pitch;x_acceleration;z_acceleration;pitch_acceleration;f1_velocity;f2_velocity];
-% dydt=[velocity_x;velocity_z;velocity_pitch;x_acceleration;z_acceleration;pitch_acceleration];
+
+dydt=[velocity_x;velocity_z;velocity_pitch;x_acceleration;z_acceleration;pitch_acceleration;f_velocity];
 
 end

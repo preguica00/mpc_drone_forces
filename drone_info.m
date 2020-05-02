@@ -11,8 +11,6 @@ function [H,Ts,id_x,id_z,id_theta,id_dotx,id_dotz,id_dottheta,id_f1, id_f2] = dr
     id_dottheta = (1:H) + 5*H;
     id_f1= (1:H) + 6*H;
     id_f2 = (1:H) + 7*H;
-%     
-%     id_f1 = 1:H;
-%     id_f2 = (1:H) + H;
+
 end
 

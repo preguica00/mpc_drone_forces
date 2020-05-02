@@ -25,7 +25,7 @@ opts = optimset('Display','iter','Algorithm','interior-point', 'MaxIter', 30000,
 
    [optimum, ~] = fmincon(@(y)costfunction(y, H), optimum,[],[],[],[],[],[],@(y)discretization(y,x_init,z_init,theta_init,xvelocity_init,zvelocity_init,angvelocity_init,f1_init,f2_init),opts);
    
-%       [optimum, ~] = fmincon(@(y)costfunction(y, H), optimum);
+
    f1_optimum = optimum(id_f1);
    f2_optimum = optimum(id_f2);
    u1_optimum(:) = f1_optimum(:) - f2_optimum(:);

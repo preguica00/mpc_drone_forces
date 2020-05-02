@@ -24,7 +24,6 @@ function cost = costfunction(y, H)
     mode_diff = f1(:)-f2(:);
     mode_common = f1(:)+f2(:);
    
-%         cost = sum(2*(x(:)-x_final).^2+(z(:)-z_final).^2 + (theta(:)).^2 + (x_velocity(:)-dotx_final).^2+ (z_velocity(:)-dotz_final).^2+(angular_velocity(:)-dottheta_final).^2 + (mode_diff(:)).^2+(mode_common(:)).^2);   
 
     cost = sum(2*(x(:)-x_final).^2+(z(:)-z_final).^2 + (theta(:)- theta_final).^2 + (x_velocity(:)).^2+ (z_velocity(:)).^2+(angular_velocity(:)-theta_dotfinal).^2 + (mode_diff(:)).^2+(mode_common(:)-common_final).^2);   
 
