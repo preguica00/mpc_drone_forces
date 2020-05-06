@@ -1,9 +1,9 @@
-function dydt = quadcopter_ode(t,y)
+function dydt = quadcopter_ode(t,y,u)
 
-[H,Ts,id_x,id_z,id_theta,id_dotx,id_dotz,id_dottheta,id_f1, id_f2]  = drone_info;
+[H,Ts,id_u1,id_u2,id_x,id_z,id_theta,id_dotx,id_dotz,id_dottheta,id_f1, id_f2]  = drone_info;
 [mass,inertia_moment,arm_moment,gravitational_acceleration] = parameters;
 %parameters
-tau = 5*10^(-3);
+tau = 5*10^(-1);
 fmax=mass*gravitational_acceleration;
 alpha = 1/fmax;
 %% Unpack the state and input vectors
@@ -19,10 +19,11 @@ f2 = y(8);
     
 %u1=f1-f1;
 %u2=f1+f2;
-diff_mode  = f1-f2;
-common_mode = f1+f2;
+% diff_mode  = f1-f2;
+% common_mode = f1+f2;
 
-
+diff_mode  = u(1);
+common_mode = u(2);
 
 %%Equations of motion
 x_acceleration = (1/mass)*sin(pitch)* common_mode;

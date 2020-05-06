@@ -40,13 +40,25 @@ ylabel('$\dot{\theta}$ (rad/s)', 'Interpreter','latex')
 xlabel('Discrete Time')
 
 figure
-subplot(1,2,1)
+subplot(2,2,1)
 plot(control_variables(:,1),'b', 'Linewidth', 1.5);
 xlim([1 50])
-ylabel('$u_{1optimum}$ (m)', 'Interpreter','latex')
+ylabel('$u_{1optimum}$ (N)', 'Interpreter','latex')
 xlabel('Discrete Time')
-subplot(1,2,2)
+subplot(2,2,2)
 plot(control_variables(:,2),'b', 'Linewidth', 1.5);
 xlim([1 50])
-ylabel('$u_{2optimum}$ (m)', 'Interpreter','latex')
+ylabel('$u_{2optimum}$ (N)', 'Interpreter','latex')
+xlabel('Discrete Time')
+
+subplot(2,2,3)
+plot(state_trajectory(:,7),'b', 'Linewidth', 1.5);
+xlim([1 50])
+ylabel('$f_1$ (N)', 'Interpreter','latex')
+xlabel('Discrete Time')
+
+subplot(2,2,4)
+plot(state_trajectory(:,8),'b', 'Linewidth', 1.5);
+xlim([1 50])
+ylabel('$f_2$ (N)', 'Interpreter','latex')
 xlabel('Discrete Time')

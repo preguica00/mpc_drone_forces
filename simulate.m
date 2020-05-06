@@ -16,7 +16,7 @@ function simulate()
     current_state = [0;0;0;0;0;0;0;0];
     current_MPC_solution = [];
     
-   [H,Ts,id_x,id_z,id_theta,id_dotx,id_dotz,id_dottheta,id_f1, id_f2]  = drone_info;
+[H,Ts,id_u1,id_u2,id_x,id_z,id_theta,id_dotx,id_dotz,id_dottheta,id_f1, id_f2]  = drone_info;
 %     [xobs,yobs, obj_coord,radius] = obstacle;
     [mass,inertia_moment,arm_moment,gravitational_acceleration] = parameters;
 %     plot(xobs,yobs, '-k','Linewidth', 1.5);
@@ -28,7 +28,7 @@ function simulate()
             optimizetrajectory(current_state, current_MPC_solution);
         
         %% Run the simulation
-        current_state = simulate_timestep(current_state);
+        current_state = simulate_timestep(current_state, command);
 
         %% Visualize
         plot_prediction.XData = predicted_trajectory(:,1);

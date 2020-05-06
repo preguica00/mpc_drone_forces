@@ -3,7 +3,7 @@ function [mass,inertia_moment,arm_moment,gravitational_acceleration] = parameter
 mass = 1;
 inertia_moment = 0.01;
 arm_moment = 0.1;
-gravitational_acceleration = 9.81;
+gravitational_acceleration = 10;
 
 end
 
